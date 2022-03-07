@@ -31,9 +31,9 @@ function Home({ toDos }) {
   );
 }
 
-// mapStateToProp : store의 state 받아오는 함수 => Home component에 prop으로 전달
-function mapStateToProp(state) {
+// mapStateToProps : store의 state 받아오는 함수 => Home component에 prop으로 전달
+function mapStateToProps(state) {
   return { toDos: state };
 }
 
-export default connect(mapStateToProp)(Home);
+export default connect(mapStateToProps)(Home);
