@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { actionCreators } from "../store";
 
-function Home({ toDos }) {
+function Home({ toDos, addToDo }) {
   const [text, setText] = useState("");
 
   function onChange(e) {
@@ -10,7 +11,7 @@ function Home({ toDos }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    console.log(text);
+    addToDo(text);
     setText("");
   }
 
@@ -31,9 +32,16 @@ function Home({ toDos }) {
   );
 }
 
-// mapStateToProps : store의 state 받아오는 함수 => Home component에 prop으로 전달
+// mapStateToProps : store에서 state 받아오는 함수 => Home component에 prop으로 전달
 function mapStateToProps(state) {
   return { toDos: state };
 }
 
-export default connect(mapStateToProps)(Home);
+// mapDispatchToProps: store에 action을 dispatch 하는 함수 => Home component에 prop으로 전달
+function mapDispatchToProps(dispatch) {
+  return {
+    addToDo: (text) => dispatch(actionCreators.addToDo(text)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
