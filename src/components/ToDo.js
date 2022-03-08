@@ -2,12 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { actionCreators } from "../store";
+import styles from "./ToDo.module.css";
 
 function ToDo({ text, onBtnClick, id }) {
   return (
-    <li>
+    <li className={styles.toDo}>
       <Link to={`/${id}`}>{text}</Link>
-      <button onClick={onBtnClick}>DEL</button>
+      <button onClick={onBtnClick} className={styles.button}>
+        DEL
+      </button>
     </li>
   );
 }

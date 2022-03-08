@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import ToDo from "../components/ToDo";
 import { actionCreators } from "../store";
+import styles from "./Home.module.css";
 
 function Home({ toDos, addToDo }) {
   const [text, setText] = useState("");
@@ -18,21 +19,25 @@ function Home({ toDos, addToDo }) {
 
   return (
     <>
-      <h1>To Do</h1>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className={styles.form}>
+        <h1 className={styles.title}>✨To Do✨</h1>
+
         <input
+          className={styles.input}
           type="text"
-          placeholder="What is your todo?"
+          placeholder="What is your ToDo?"
           value={text}
           onChange={onChange}
         />
-        <button>Add</button>
+        <button className={styles.button}>Add</button>
       </form>
-      <ul>
-        {toDos.map((toDo) => (
-          <ToDo {...toDo} key={toDo.id} />
-        ))}
-      </ul>
+      <div className={styles.container}>
+        <ul className={styles.ul}>
+          {toDos.map((toDo) => (
+            <ToDo {...toDo} key={toDo.id} />
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
