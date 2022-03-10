@@ -2,7 +2,7 @@
 
 ## Demo Link
 
-![Screenshot](https://user-images.githubusercontent.com/71063574/157178114-34fc020b-92b5-435c-a8d3-522612cfab6e.jpg)
+![Screenshot](https://user-images.githubusercontent.com/71063574/157683738-a9509fda-c006-4e67-a31e-e672ea9347da.jpg)
 
 🔗 https://heejinkim0812.github.io/react-redux
 
